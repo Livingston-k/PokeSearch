@@ -1,12 +1,12 @@
 import React from "react"
 import {View,StyleSheet,Imager} from "react-native"
 
-var backGround = require('../assets/icons/loader.gif')
+var pokeLoader = require('../assets/icons/loader.gif')
 class PokeLoader extends React.Component{
     render(){
         return (
             <View>
-               <Image style={styles.img} source={backGround}/>
+               <Image style={styles.img} source={pokeLoader}/>
             </View>
         )
     }
