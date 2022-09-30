@@ -1,5 +1,5 @@
 import React from "react"
-import {View,StyleSheet,Imager} from "react-native"
+import {View,StyleSheet,Image} from "react-native"
 
 var pokeLoader = require('../assets/icons/loader.gif')
 class PokeLoader extends React.Component{
