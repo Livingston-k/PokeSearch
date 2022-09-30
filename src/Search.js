@@ -14,13 +14,23 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import PokeLoader from "./PokeLoader";
 import SearchBody from "./SearchBody";
+import axios from 'axios'
 
 class Search extends React.Component{
     state = {
         pokesearch:"",
-        onCall:true
+        onCall:false,
+        data:{}
     }
     searchPoke =()=>{
+      this.setState({onCall:true})
+      var self = this
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${this.state.pokesearch.toLowerCase()}`).then((response)=>{
+     self.setState({onCall:false})
+     self.setState({data:response.data})
+      }).catch((error)=>{
+   console.log(error)
+      })
 
     }
     renderBody = ()=>{
@@ -30,7 +40,8 @@ class Search extends React.Component{
   )
      }else{
  return (
-   <SearchBody/>
+
+   <SearchBody data={this.state.data}/>
   )
      }
     }
